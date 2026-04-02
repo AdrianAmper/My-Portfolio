@@ -1,186 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adrian Amper | Portfolio</title>
-    <style>
-        /* --- General Setup --- */
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* --- Navigation --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            flex-wrap: wrap; /* Allows wrapping on tiny screens */
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-decoration: none;
-            color: black;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-            font-size: 0.85rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #666;
-        }
-
-        /* --- Main Content Container --- */
-        .container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            padding: 2rem 10%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .profile-pic {
-            flex-shrink: 0;
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            overflow: hidden;
-            background-color: #ddd;
-        }
-
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-text {
-            max-width: 500px;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem); /* Scales font based on screen size */
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-
-        /* --- Interactive Circles --- */
-        .cta-group {
-            display: flex;
-            gap: 15px;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: transform 0.2s ease;
-        }
-
-        .btn:hover { transform: translateY(-5px); }
-        .btn-resume { background-color: #fbe4e4; }
-        .btn-work { background-color: #fdf2e9; }
-        .btn-contact { background-color: #f8ad9d; }
-
-        /* --- Footer --- */
-        footer {
-            border-top: 1px solid #eee;
-            padding: 2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 0.8rem;
-            color: #999;
-        }
-
-        /* --- MOBILE RESPONSIVENESS (The Magic) --- */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column; /* Stacks image on top of text */
-                text-align: center;
-                padding: 2rem 5%;
-            }
-
-            .profile-pic {
-                width: 250px;
-                height: 250px;
-            }
-
-            .cta-group {
-                justify-content: center;
-            }
-
-            nav {
-                justify-content: center;
-                gap: 15px;
-            }
-
-            footer {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adrian Amper — Portfolio</title>
+  <link href="CSS/style.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="logo">Adrian Amper</a>
-        <div class="nav-links">
-            <a href="#">Resume</a> | <a href="#">Work</a> | <a href="#">Contact</a>
-        </div>
-    </nav>
+  <!-- NAV -->
+  <nav>
+    <a href="#home" class="nav-logo">Adrian Amper</a>
+    <ul class="nav-links">
+      <a href="#about">About Me</a>
+      <span class="nav-sep">|</span>
+      <a href="#projects">Projects</a>
+      <span class="nav-sep">|</span>
+      <a href="#contact">Contact</a>
+    </ul>
+  </nav>
 
-    <div class="container">
-        <div class="profile-pic">
-            <img src="https://www.google.com/imgres?q=re%20zero%20sad%20picture&imgurl=https%3A%2F%2Fpreview.redd.it%2Fyour-favorite-emotional-moment-in-re-zero-v0-3hprjw0e6lue1.jpg%3Fwidth%3D640%26crop%3Dsmart%26auto%3Dwebp%26s%3Df40c74e32f65f560408959691b6f68bd6499a2e5&imgrefurl=https%3A%2F%2Fwww.reddit.com%2Fr%2FReZero%2Fcomments%2F1jy5eek%2Fyour_favorite_emotional_moment_in_rezero%2F&docid=c1VRSYb7em3fiM&tbnid=rAwVWuBNEUVJXM&vet=12ahUKEwir8rO2scqTAxXYna8BHZdKK7oQnPAOegQIGhAB..i&w=640&h=360&hcb=2&ved=2ahUKEwir8rO2scqTAxXYna8BHZdKK7oQnPAOegQIGhAB" alt="Adrian Amper">
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-inner">
+      <div class="hero-photo">
+        <!-- Replace src with your actual photo -->
+        <img src="utilities/images/Gemini_Generated_Image_bh3p3nbh3p3nbh3p.png" alt="Adrian">
+      </div>
+      <div class="hero-text">
+        <span class="hero-tag">Available for work ✦</span>
+        <h1 class="hero-headline">
+          <span class="line">UI/UX.</span>
+          <span class="line">Graphic Designer.</span>
+          <span class="line quoted">"Master Baiter"</span>
+        </h1>
+        <p class="hero-sub">After a decade in media, I've learned that a good story conveys emotion and information like nothing else. I can help you write one.</p>
+        <div class="hero-btns">
+          <a href="#about" class="btn btn-peach1">About Me</a>
+          <a href="#projects" class="btn btn-peach2">Work</a>
+          <a href="#contact" class="btn btn-peach3">Contact</a>
         </div>
-
-        <div class="hero-text">
-            <h1>UI/UX. Graphic Designer<br>Master Baiter</h1>
-            <p>After a decade in media, I've learned that a good story conveys emotion and information like nothing else. I can help you write one.</p>
-            
-            <div class="cta-group">
-                <a href="#" class="btn btn-resume">Resume</a>
-                <a href="#" class="btn btn-work">Work</a>
-                <a href="#" class="btn btn-contact">Contact</a>
-            </div>
-        </div>
+      </div>
     </div>
+  </section>
 
-    <footer>
-        <div><strong>Phone:</strong> 917.946.1463</div>
-        <div><strong>Email:</strong> adrian.amper@gmail.com</div>
-        <div>© 2026 by Adrian Amper</div>
-    </footer>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <span class="section-label reveal">Who I am</span>
+      <h2 class="section-title reveal">About Me</h2>
+      <div class="about-grid">
+        <div class="about-body reveal">
+          <p>Hey! I'm Adrian — a UI/UX and graphic designer with over a decade of experience crafting visual stories that stick. My work lives at the intersection of clean design, strategic thinking, and genuine human emotion.</p>
+          <p>I believe great design isn't just about aesthetics — it's about communicating something real. Whether it's a brand identity, a digital product, or a one-pager that needs to land a deal, I bring both craft and intent to the table.</p>
+          <p>When I'm not designing, I'm probably studying human behavior, obsessing over typography, or finding the perfect frame for a shot.</p>
+        </div>
+        <div class="skills-grid reveal">
+          <div class="skill-pill">
+            <div class="skill-icon">🎨</div>
+            <div><div class="skill-name">UI/UX Design</div><div class="skill-level">Figma · Prototyping</div></div>
+          </div>
+          <div class="skill-pill">
+            <div class="skill-icon">✏️</div>
+            <div><div class="skill-name">Graphic Design</div><div class="skill-level">Illustrator · Photoshop</div></div>
+          </div>
+          <div class="skill-pill">
+            <div class="skill-icon">🎬</div>
+            <div><div class="skill-name">Motion Design</div><div class="skill-level">After Effects · Lottie</div></div>
+          </div>
+          <div class="skill-pill">
+            <div class="skill-icon">📐</div>
+            <div><div class="skill-name">Brand Identity</div><div class="skill-level">Strategy · Execution</div></div>
+          </div>
+          <div class="skill-pill">
+            <div class="skill-icon">💻</div>
+            <div><div class="skill-name">Frontend Dev</div><div class="skill-level">HTML · CSS · JS</div></div>
+          </div>
+          <div class="skill-pill">
+            <div class="skill-icon">📸</div>
+            <div><div class="skill-name">Photography</div><div class="skill-level">Portrait · Editorial</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="projects-header reveal">
+        <span class="section-label">What I've built & designed</span>
+        <h2 class="section-title">My Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Card 1 -->
+        <div class="project-card reveal">
+          <div class="project-thumb">
+            <div class="project-thumb-inner thumb-auth">🔐</div>
+            <span class="project-badge badge-dev">Development</span>
+          </div>
+          <div class="project-body">
+            <div class="project-name">Role-Based Auth App</div>
+            <div class="project-desc">A full-stack authentication system with admin and user roles, JWT handling, and protected routes built for scale.</div>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="#" class="project-link" style="color:var(--muted); font-size:.78rem;">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="project-card reveal" style="transition-delay:.1s">
+          <div class="project-thumb">
+            <div class="project-thumb-inner thumb-ecom">🛒</div>
+            <span class="project-badge badge-dev">Development</span>
+          </div>
+          <div class="project-body">
+            <div class="project-name">E-Commerce Website</div>
+            <div class="project-desc">An end-to-end online shop with cart management, Stripe checkout integration, and a fully responsive storefront.</div>
+            <div class="project-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Stripe</span>
+              <span class="tag">Tailwind</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="#" class="project-link" style="color:var(--muted); font-size:.78rem;">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="project-card reveal" style="transition-delay:.2s">
+          <div class="project-thumb">
+            <div class="project-thumb-inner thumb-portfolio">🌐</div>
+            <span class="project-badge badge-design">Design</span>
+          </div>
+          <div class="project-body">
+            <div class="project-name">Portfolio Website</div>
+            <div class="project-desc">A personal website to showcase skills, work, and contact info — designed with motion and editorial sensibility.</div>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JS</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="#" class="project-link" style="color:var(--muted); font-size:.78rem;">Live</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="project-card reveal" style="transition-delay:.05s">
+          <div class="project-thumb">
+            <div class="project-thumb-inner thumb-brand">✦</div>
+            <span class="project-badge badge-design">Design</span>
+          </div>
+          <div class="project-body">
+            <div class="project-name">Brand Identity System</div>
+            <div class="project-desc">Complete brand overhaul for a local media startup — logo, color system, typography, and brand guidelines deliverable.</div>
+            <div class="project-tags">
+              <span class="tag">Illustrator</span>
+              <span class="tag">Brand</span>
+              <span class="tag">Strategy</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-link">View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="project-card reveal" style="transition-delay:.15s">
+          <div class="project-thumb">
+            <div class="project-thumb-inner thumb-motion">▶</div>
+            <span class="project-badge badge-motion">Motion</span>
+          </div>
+          <div class="project-body">
+            <div class="project-name">Motion Design Reel</div>
+            <div class="project-desc">A curated collection of motion graphics, animated logos, and kinetic typography for broadcast and social media.</div>
+            <div class="project-tags">
+              <span class="tag">After Effects</span>
+              <span class="tag">Lottie</span>
+              <span class="tag">Cinema 4D</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-link">View Reel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="project-card reveal" style="transition-delay:.25s">
+          <div class="project-thumb">
+            <div class="project-thumb-inner thumb-app">📱</div>
+            <span class="project-badge badge-design">UI/UX</span>
+          </div>
+          <div class="project-body">
+            <div class="project-name">Mobile App UI Kit</div>
+            <div class="project-desc">A comprehensive Figma UI kit for a health & wellness app — 60+ screens, design tokens, and a full component library.</div>
+            <div class="project-tags">
+              <span class="tag">Figma</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">Tokens</span>
+            </div>
+            <div class="project-footer">
+              <a href="#" class="project-link">View on Figma <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <span class="section-label reveal">Let's work together</span>
+    <h2 class="section-title reveal">Get in Touch</h2>
+    <div class="contact-grid">
+      
+      <!-- Info / Links -->
+      <div class="reveal">
+        <p class="contact-intro">
+          Got a project in mind? A story that needs telling? Or just want to say hi? I'd love to hear from you. Let's make something worth remembering.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:amperadrian2@gmail.com" class="contact-link-item">
+            <div class="contact-link-icon">✉️</div>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-val">amperadrian2@gmail.com</div>
+            </div>
+          </a>
+          <a href="#" class="contact-link-item">
+            <div class="contact-link-icon">💼</div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-val">linkedin.com/in/AdrianAmper</div>
+            </div>
+          </a>
+          <a href="#" class="contact-link-item">
+            <div class="contact-link-icon">🐙</div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-val">github.com/AdrianAmper</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="contact-form reveal">
+        <form id="contactForm" onsubmit="sendEmail(event)">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input type="text" id="from_name" class="form-input" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" id="from_email" class="form-input" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea id="message" class="form-textarea" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message →</button>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- EMAILJS SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS with your public key
+  // Initialize EmailJS
+    emailjs.init("IMxy_lqHcxp0i8WpD");
+
+    // Function called on form submit
+    function sendEmail(event) {
+        event.preventDefault(); // Prevent page reload
+
+        // Use emailjs.send() and send values manually
+        emailjs.send("service_2xwhmwm", "template_8crkiee", {
+            user_name: document.getElementById("from_name").value,
+            user_email: document.getElementById("from_email").value,
+            message: document.getElementById("message").value
+        })
+        .then(function() {
+            alert("Thank you! Your message has been sent.");
+            document.getElementById("contactForm").reset();
+        }, function(error) {
+            alert("Oops! Something went wrong: " + JSON.stringify(error));
+        });
+    }
+</script>
+<script src="JS/script.js"></script>
 </body>
 </html>
+
+
+
