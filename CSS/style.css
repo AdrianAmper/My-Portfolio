@@ -464,27 +464,88 @@
       .skills-grid { grid-template-columns: 1fr; }
     }
 
-    .cursor {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: var(--moss);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: difference;
+/* ─── CUSTOM CURSOR ─── */
+ 
+/* Hide default cursor globally */
+*, *::before, *::after {
+  cursor: none !important;
 }
-
+ 
+/* ── Outer ring ── */
 .cursor-ring {
   position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--sand);
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(232, 150, 122, 0.55);
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition:
+    width  0.22s ease,
+    height 0.22s ease,
+    border-color 0.22s ease,
+    background   0.22s ease,
+    opacity      0.22s ease;
+  will-change: transform;
+}
+ 
+/* ── Inner dot ── */
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--peach3);          /* #e8967a */
+  pointer-events: none;
+  z-index: 100000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease, opacity 0.2s ease;
+  will-change: transform;
+  box-shadow: 0 0 8px rgba(232, 150, 122, 0.7);
+}
+ 
+/* ── Particle trail dot ── */
+.cursor-trail {
+  position: fixed;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: all .12s ease-out;
-  mix-blend-mode: difference;
+  z-index: 99998;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
 }
+ 
+/* ── Hover state: ring expands & fills slightly ── */
+body.cursor-hover .cursor-ring {
+  width: 52px; height: 52px;
+  border-color: rgba(232, 150, 122, 0.85);
+  background: rgba(232, 150, 122, 0.07);
+}
+ 
+body.cursor-hover .cursor-dot {
+  transform: translate(-50%, -50%) scale(0.4);
+  opacity: 0.5;
+}
+ 
+/* ── Click state: ring contracts sharply ── */
+body.cursor-click .cursor-ring {
+  width: 22px; height: 22px;
+  border-color: var(--peach3);
+  background: rgba(232, 150, 122, 0.18);
+  transition-duration: 0.08s;
+}
+ 
+body.cursor-click .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.8);
+  transition-duration: 0.08s;
+}
+ 
+/* ── Hide cursor when leaving window ── */
+body.cursor-out .cursor-ring,
+body.cursor-out .cursor-dot {
+  opacity: 0;
+}
+
+
+      
